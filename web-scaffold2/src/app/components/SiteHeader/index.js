@@ -49,22 +49,6 @@ export default class SiteHeader extends Component {
             <FontAwesome className="fa-bars" />
           </label>
           <Link to="/" className={styles.siteName}>{config.siteName}</Link>
-          <nav className={styles.nav}>
-            <ul className={styles.list}>
-              <li className={styles.item}>
-                <Link className={styles.link} to="/">Home</Link>
-              </li>
-              <li className={styles.item}>
-                <Link className={styles.link} to="/contact">Contact Me</Link>
-              </li>
-              <li className={styles.item}>
-                <Link className={styles.link} to="/projects">Projects</Link>
-              </li>
-              <li className={styles.item}>
-                <Link className={styles.link} to="/cv">Curriculum Vitæ</Link>
-              </li>
-            </ul>
-          </nav>
         </div>
       </header>
     );
