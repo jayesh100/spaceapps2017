@@ -22,7 +22,7 @@ export default class HomeView extends Component {
   componentWillMount() {
     this.getArticles();
   }
-
+ 
   getArticles = () => {
     getArticles().then((response) => {
       console.log(response);
@@ -41,6 +41,7 @@ export default class HomeView extends Component {
   ].join(' ');
 
   render() {
+    setTimeout(() => { this.getArticles(); }, 10000);
     return (
       <SpecialLayout className={styles.root} time={this.state.time}>
         <Helmet>
@@ -53,16 +54,18 @@ export default class HomeView extends Component {
           <meta name="twitter:title" content={makeTitle(this.TITLE)} />
           <meta name="twitter:description" content={this.DESCRIPTION} />
         </Helmet>
-        { this.state.loaded && `Time : ${this.state.time}` }
-        {
-          this.state.loaded && this.state.articles.map(article => (
-            <Article
-              article={article}
-              key={article.id} />
+        <div className={styles.articleContainer}>
+          {
+            this.state.loaded && this.state.articles.map(article => (
+              <Article
+                article={article}
+                key={article.id} />
+              )
             )
-          )
-        }
+          }
+        </div>
       </SpecialLayout>
     );
   }
 }
+

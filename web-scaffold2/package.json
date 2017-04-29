@@ -99,6 +99,7 @@
     "react-helmet": "^5.0.1",
     "react-hot-loader": "^3.0.0-beta",
     "react-redux": "^4.4.1",
+    "react-refetch": "^1.0.0",
     "react-router": "^2.0.1",
     "react-router-redux": "^4.0.2",
     "react-router-scroll": "^0.3.2",

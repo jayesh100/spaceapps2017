@@ -3,6 +3,8 @@ import cx from 'classnames';
 
 import FontAwesome from 'app/components/FontAwesome';
 
+import styles from './styles.styl';
+
 export default class Article extends Component {
   constructor(props) {
     super(props);
@@ -12,10 +14,11 @@ export default class Article extends Component {
 
   render() {
     return (
-      <div>
+      <div className={styles.article}>
         <FontAwesome className={'fa-star'} />
         <p>{this.article.title}</p>
       </div>
     );
   }
 }
+

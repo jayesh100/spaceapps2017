@@ -10,7 +10,7 @@ export default function newsFeedHandler(req, res, next) {
     .then((articles) => {
       res.send({
         articles,
-        time: moment().format('DD/MM/YYYY'),
+        time: moment().format('DD/MM/YYYY, h:mm a'),
       });
     })
     .error((e) => {
