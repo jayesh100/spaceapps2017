@@ -13,7 +13,7 @@ Make sure you `npm install`.
 
 ### Running
 
-To start the server in development mode, use `npm run dev`. The server will start on port 8080. You shouldn't need to restart the server in this mode even if you make changes, as the server will update as you save. Some functionality things will even update without you having to refresh. If you run into any issues though, it might be a good idea to refresh the page or restart the server.
+To start the server in development mode, use `npm run dev`. The server will start on port 8000. You shouldn't need to restart the server in this mode even if you make changes, as the server will update as you save. Some functionality things will even update without you having to refresh. If you run into any issues though, it might be a good idea to refresh the page or restart the server.
 
 ## "Production" mode
 

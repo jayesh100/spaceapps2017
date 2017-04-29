@@ -413,6 +413,11 @@
       "from": "nodemailer@3.1.8",
       "resolved": "https://registry.npmjs.org/nodemailer/-/nodemailer-3.1.8.tgz"
     },
+    "nprogress": {
+      "version": "0.2.0",
+      "from": "nprogress@>=0.2.0 <0.3.0",
+      "resolved": "https://registry.npmjs.org/nprogress/-/nprogress-0.2.0.tgz"
+    },
     "object-assign": {
       "version": "4.1.1",
       "from": "object-assign@>=4.0.1 <5.0.0",
