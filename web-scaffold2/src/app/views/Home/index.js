@@ -22,7 +22,7 @@ export default class HomeView extends Component {
   componentWillMount() {
     this.getArticles();
   }
- 
+
   getArticles = () => {
     getArticles().then((response) => {
       console.log(response);
