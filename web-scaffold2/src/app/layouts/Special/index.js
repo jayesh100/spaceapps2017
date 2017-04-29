@@ -10,12 +10,16 @@ import SiteHeader from 'app/components/SiteHeader';
 import styles from './styles.styl';
 
 
-export default class SpecialLayout extends Component {
+export default class SpecialLayout extends Component {  
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
   };
 
+  constructor(props) {
+    super(props);
+    this.props = props;
+  }
   // componentDidMount() {
   //   this.prevScrollY = Math.max(0, window.scrollY);
   //   this.isAnimating = false;
@@ -77,7 +81,7 @@ export default class SpecialLayout extends Component {
   render() {
     return (
       <div className={styles.root}>
-        <SiteHeader ref={ref => (this._header = ref)} />
+        <SiteHeader ref={ref => (this._header = ref)} time={this.props.time} />
         <main className={cx(styles.main, this.props.className)}>
           {this.props.children}
         </main>

@@ -43,8 +43,7 @@ export default class SiteHeader extends Component {
 
   render() {
     const { scrolled } = this.state;
-    let { time } = this.props; // should be const
-    time = 'have some time';
+    const time = `Time: ${this.props.time || 'Unavailable'}`;
     return (
       <header id="siteHeader" className={cx(styles.root, { [styles.scrolled]: scrolled })}>
         <div className={cx(styles.wrapper)}>
