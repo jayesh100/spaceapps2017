@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import Slider from 'react-slick';
 // import { Link } from 'react-router';
 
 import config from 'app/config';
