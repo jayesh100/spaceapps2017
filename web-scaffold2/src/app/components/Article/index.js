@@ -12,7 +12,7 @@ export default class Article extends Component {
 
   render() {
     return (
-      <div >
+      <div>
         <FontAwesome className={'fa-star'} />
         <p>{this.article.title}</p>
       </div>

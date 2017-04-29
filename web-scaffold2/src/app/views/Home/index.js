@@ -53,6 +53,7 @@ export default class HomeView extends Component {
           <meta name="twitter:title" content={makeTitle(this.TITLE)} />
           <meta name="twitter:description" content={this.DESCRIPTION} />
         </Helmet>
+        { this.state.loaded && `Time : ${this.state.time}` }
         {
           this.state.loaded && this.state.articles.map(article => (
             <Article
