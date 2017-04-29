@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
-import cx from 'classnames';
+// import cx from 'classnames';
 
 import FontAwesome from 'app/components/FontAwesome';
 
 import styles from './styles.styl';
 
 export default class Article extends Component {
+  static propTypes = {
+    article: {},
+  };
+
   constructor(props) {
     super(props);
     this.props = props;
