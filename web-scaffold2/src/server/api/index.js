@@ -1,15 +1,17 @@
 import Express from 'express';
 import bodyParser from 'body-parser';
 
+import addArticleHandler from 'server/api/handlers/addArticle';
 import contactHandler from 'server/api/handlers/contact';
 import newsFeedHandler from 'server/api/handlers/news';
-
 
 const apiServer = new Express();
 
 apiServer.post('/contact', bodyParser.json(), contactHandler);
 
 apiServer.get('/newsfeed', newsFeedHandler);
+
+apiServer.post('/news/add', bodyParser.json(), addArticleHandler);
 
 
 apiServer.use((req, res, next) => {
