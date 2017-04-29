@@ -1,0 +1,39 @@
+@import '~app/assets/stylus'
+
+
+.wrapper
+  position: fixed
+  top: 0
+  left: 0
+  right: 0
+  bottom: 0
+  height: 100%
+  width: 100%
+  background: lighten($errorColor, 90%)
+  overflow-y: scroll
+  z-index: $zIndexUnsupportedMessage
+
+.container
+  display: table
+  height: 100%
+  min-height: 100%
+
+.inner
+  display: table-cell
+  vertical-align: middle
+  text-align: center
+
+  h1
+    font-size: 48px
+    margin: 0 16px 16px
+
+  p
+    font-size: 20px
+    margin: 0 16px 0.5em
+
+  code
+    display: block
+    padding: 8px
+    margin-bottom: 0.5em
+    background: $backgroundColor
+    font-family: $fontStackMono

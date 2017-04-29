@@ -1,0 +1,64 @@
+@import '~app/assets/stylus'
+
+
+$infoWidth = 140px
+$padding = 24px
+
+.root
+  background: $textColor
+  color: $backgroundColor
+  line-height: 1.15
+
+.column
+  composes: column from 'app/assets/stylus/common.styl'
+
+.wrapper
+  display: flex
+  flex-direction: row
+  flex-wrap: wrap
+  border-top: 1px solid $darkBorderColor
+  border-left: 1px solid $darkBorderColor
+  margin-right: -1px
+
+.info
+  flex: 1 0 auto
+  min-width: $infoWidth
+  padding: $padding
+  border-bottom: 1px solid $darkBorderColor
+  border-right: 1px solid $darkBorderColor
+
+  li
+    &:not(:last-child)
+      margin-bottom: .25em
+
+    & > a
+      text-decoration: none
+      font-weight: 600
+      color: $themeColor
+
+      // &:hover
+      //   color: $brightLinkHoverColor
+
+.double
+  flex: 2 0 auto
+  width: (2 * $infoWidth)
+
+.full
+  flex-basis: 100%
+
+.social
+  display: flex
+  justify-content: space-between
+  align-items: center
+
+  a
+    font-size: 32px
+
+    &:hover
+      color: $themeColor
+
+    &:not(:last-child)
+      margin-right: 8px
+
+.copyright
+  white-space: nowrap

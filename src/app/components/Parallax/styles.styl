@@ -1,0 +1,20 @@
+.root
+  position: relative
+  width: 100%
+  perspective: 1px
+  overflow: hidden
+
+.background
+  position: absolute
+  top: 0
+  left: 0
+  bottom: 0
+  right: 0
+  min-height: 100%
+  min-width: 100%
+  transform: translate3d(0, 50%, -1px) scale(2)
+
+.foreground
+  height: 100%
+  width: 100%
+  transform: translateZ(0)
