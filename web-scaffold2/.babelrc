@@ -1,0 +1,20 @@
+{
+  "presets": [
+    "es2015-node",
+    "es2016",
+    "es2017",
+    "react",
+    "stage-0",
+    "flow"
+  ],
+  "plugins": [
+    [
+      "transform-async-to-module-method",
+      {
+        "module": "bluebird",
+        "method": "coroutine"
+      }
+    ],
+    "transform-decorators-legacy"
+  ]
+}
