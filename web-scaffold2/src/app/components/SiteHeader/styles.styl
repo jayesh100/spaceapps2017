@@ -9,15 +9,19 @@
   height: 48px
 
 .wrapper
-  composes: column from 'app/assets/stylus/common.styl'
+  composes: newColumn from 'app/assets/stylus/common.styl'
   display: flex
   height: 100%
-  margin-top: 8px
-  flex-direction: column
+  flex-direction: row
   align-items: center
+  justify-content: space-between
 
 .logo
-  width:
+  height: 40px
+
+.time
+  composes: overlay from 'app/assets/stylus/common.styl'
+  display: inline-block
 
 .link
   composes: overlay from 'app/assets/stylus/common.styl'

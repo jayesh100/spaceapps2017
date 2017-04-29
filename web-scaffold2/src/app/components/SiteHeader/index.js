@@ -43,13 +43,14 @@ export default class SiteHeader extends Component {
 
   render() {
     const { scrolled } = this.state;
-    const { time } = this.props;
+    let { time } = this.props; // should be const
+    time = 'have some time';
     return (
       <header id="siteHeader" className={cx(styles.root, { [styles.scrolled]: scrolled })}>
         <div className={cx(styles.wrapper)}>
-          <img className={styles.logo} href={nasaLogo} alt="NASA Logo" />
+          <img className={styles.logo} src={nasaLogo} alt="NASA Logo" />
           <Link to="/" className={styles.siteName}>{config.siteName}</Link>
-          <div className={styles.time}>{time}}</div>
+          <div className={styles.time}>{time}</div>
         </div>
       </header>
     );
