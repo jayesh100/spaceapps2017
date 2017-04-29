@@ -42,7 +42,7 @@ export default class HomeView extends Component {
 
   render() {
     return (
-      <SpecialLayout className={styles.root}>
+      <SpecialLayout className={styles.root} time={this.state.time}>
         <Helmet>
           <title>{this.TITLE}</title>
           <meta name="description" content={this.DESCRIPTION} />
