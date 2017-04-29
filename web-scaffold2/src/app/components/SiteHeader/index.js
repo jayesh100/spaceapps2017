@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import cx from 'classnames';
 
+import nasaLogo from 'app/assets/images/NASA_logo.svg';
 import config from 'app/config';
 import throttle from 'app/lib/throttle';
-import FontAwesome from 'app/components/FontAwesome';
 
 import styles from './styles.styl';
 
@@ -17,6 +17,7 @@ const EVENTS = [
 export default class SiteHeader extends Component {
   static propTypes = {
     threshold: PropTypes.func,
+    time: PropTypes.string,
   };
 
   state = {
@@ -42,13 +43,13 @@ export default class SiteHeader extends Component {
 
   render() {
     const { scrolled } = this.state;
+    const { time } = this.props;
     return (
       <header id="siteHeader" className={cx(styles.root, { [styles.scrolled]: scrolled })}>
         <div className={cx(styles.wrapper)}>
-          <label htmlFor="drawer" className={styles.hamburger}>
-            <FontAwesome className="fa-bars" />
-          </label>
+          <img className={styles.logo} href={nasaLogo} alt="NASA Logo" />
           <Link to="/" className={styles.siteName}>{config.siteName}</Link>
+          <div className={styles.time}>{time}}</div>
         </div>
       </header>
     );

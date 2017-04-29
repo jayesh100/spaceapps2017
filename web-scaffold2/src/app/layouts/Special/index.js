@@ -6,7 +6,6 @@ import cx from 'classnames';
 // import { smoothScrollTo } from 'app/lib/scroll';
 // import throttle from 'app/lib/throttle';
 import SiteHeader from 'app/components/SiteHeader';
-import SiteFooter from 'app/components/SiteFooter';
 
 import styles from './styles.styl';
 
@@ -82,7 +81,6 @@ export default class SpecialLayout extends Component {
         <main className={cx(styles.main, this.props.className)}>
           {this.props.children}
         </main>
-        <SiteFooter />
       </div>
     );
   }
