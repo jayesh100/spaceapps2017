@@ -1,6 +1,6 @@
 export default {
   port: process.env.PORT || 8000,
-  baseUrl: 'localhost',
+  baseUrl: 'http://localhost',
   siteName: 'NASA Hab Feed',
   analytics: {
     trackingId: process.env.ANALYTICS_TRACKING_ID,
