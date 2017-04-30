@@ -33,7 +33,7 @@ export default class HomeView extends Component {
   componentDidMount() {
     this.mounted = true;
     setInterval(() => { this.getArticles(); }, 30000);
-    setInterval(() => { this.incrementScroll(); }, 1000);
+    setInterval(() => { this.incrementScroll(); }, 5000);
     this.images = [
       undefined,
       trumpFace,
@@ -71,7 +71,7 @@ export default class HomeView extends Component {
   incrementScroll = () => {
       console.log('Scrolling...');
       if (this.articleIds) {
-        this.scrollY = 500 * this._currentIndex;
+        this.scrollY = 600 * this._currentIndex;
         this.scroll(this.scrollY);
         console.log('Actual movement...', this.articleIds, this._currentIndex);
         this._currentIndex += 1;
