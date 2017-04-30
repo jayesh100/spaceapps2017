@@ -19,8 +19,8 @@ export default class Article extends Component {
         </div>
         <div className={styles.image}>{this.props.image && (<img alt={`Preview for ${this.props.article.sId}`} src={this.props.image} />)}</div>
         <div className={styles.summary}>{this.props.article.summary}</div>
-        <div className={styles.source}>{
-          `Source: ${this.props.article.source}${'\n'}Timestamp: ${this.props.article.timestamp}`}</div>
+        <div className={styles.source}>{`Source: ${this.props.article.source}`}</div>
+        <div className={styles.source}>{`Timestamp: ${this.props.article.timestamp}`}</div>
       </div>
     );
   }
