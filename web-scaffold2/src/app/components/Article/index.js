@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import cx from 'classnames';
+import cx from 'classnames';
 
 import styles from './styles.styl';
 
@@ -18,7 +18,7 @@ export default class Article extends Component {
           <div className={styles.sid}>{this.props.article.sId}</div>
         </div>
         <div className={styles.image}>{this.props.image && (<img alt={`Preview for ${this.props.article.sId}`} src={this.props.image} />)}</div>
-        <div className={styles.summary}>{this.props.article.summary}</div>
+        <div className={cx(styles.summary, { [styles.summaryWithImage]: this.props.article.image })}>{this.props.article.summary}</div>
         <div className={styles.source}>{`Source: ${this.props.article.source}`}</div>
         <div className={styles.source}>{`Timestamp: ${this.props.article.timestamp}`}</div>
       </div>
