@@ -7,6 +7,7 @@ const DB = 'app';
 export default function newsFeedHandler(req, res, next) {
   r.db(DB)
     .table('articles')
+    .orderBy(r.desc('timestamp'))
     .then((articles) => {
       res.send({
         articles,
