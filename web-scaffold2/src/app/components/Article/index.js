@@ -17,7 +17,12 @@ export default class Article extends Component {
   render() {
     return (
       <div className={styles.article}>
-        <p>{this.article.title}</p>
+        <div className={styles.header}>
+          <h3 className={styles.title}>{this.article.title}</h3>
+          <div className={styles.sid}>{this.article.sid}</div>
+        </div>
+        <p className={styles.summary}>{this.article.summary}</p>
+        <div className={styles.source}>{this.article.source}</div>
       </div>
     );
   }
