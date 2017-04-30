@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 
 import styles from './styles.styl';
 
+const source = `source: ${this.article.source}`;
+
 export default class Article extends Component {
 
   constructor(props) {
@@ -19,7 +21,7 @@ export default class Article extends Component {
           <div className={styles.sid}>{this.article.sid}</div>
         </div>
         <p className={styles.summary}>{this.article.summary}</p>
-        <div className={styles.source}>{this.article.source}</div>
+        <div className={styles.source}>{source}</div>
       </div>
     );
   }
