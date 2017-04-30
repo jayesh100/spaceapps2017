@@ -3,6 +3,7 @@
   padding-bottom: 20px
   margin: 10px
   background-color: #ddd
+  background: linear-gradient(to bottom, #aaaaaa 0%,#dddddd 100%);
   border-radius: 10px
   border: 1px solid transparent
 
@@ -10,27 +11,49 @@
   display: flex
   align-items: center
   justify-content: space-between
-  border-bottom: 1px solid black
-  background-color: #bbb
-  margin-bottom: 5px
+  border-bottom: 3px solid #144694
+  border-top-left-radius: 10px
+  border-top-right-radius: 10px
+  background: linear-gradient(to bottom, #5e96d6 0%,#1a5dad 100%);
+  color: #fff
+  margin-bottom: 20px
   padding-top: 20px
   padding: 0 20px
+  font-size: 60px
 
 .title
-  font-size: 18px
   margin: 0 auto
+  font-weight: 600
 
-.sId
-  color: #666
-  font-size: 10px
+.sid
+  border-left: 4px solid #fff
+  margin-left: 30px
+  padding-left: 5px
+  padding-top: 5px
+  padding-bottom: 5px
+
+.contentBox
+  padding: 0 20px
+  display: flex
+  justify-content: space-between
 
 .summary
-  font-size: 14px
-  padding: 0 20px
+  font-size: 35px
+  display: inline-block
+
+.summaryWithImage
+  margin-left: 20px
+
+.image
+  display: inline-block
+
+  img
+    width: 150px
+    max-width: 150px
 
 .source
   display: flex
   flex-direction: row-reverse
   color: #666
-  font-size: 10px
+  font-size: 20px
   padding: 0 20px

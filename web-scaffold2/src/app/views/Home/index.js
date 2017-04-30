@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, findDOMNode } from 'react';
 import { Helmet } from 'react-helmet';
-import scrollToComponent from 'react-scroll-to-component';
-// import { Link } from 'react-router';
+import { debounce } from 'lodash-es';
 
+import { smoothScrollTo } from 'app/lib/scroll';
+// import { Link } from 'react-router';
 import config from 'app/config';
 import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import getArticles from 'app/articleApi';
 import Article from 'app/components/Article';
+import trumpFace from 'app/assets/images/trump.jpg';
+import politicFace from 'app/assets/images/politician.jpg';
+import nasaLogo from 'app/assets/images/NASA_logo.svg';
+import car from 'app/assets/images/car.png';
 
 import styles from './styles.styl';
 
 export default class HomeView extends Component {
   constructor(props) {
     super(props);
+    this.scrollY = 0;
     this.state = {
       articles: [],
       loaded: false,
@@ -24,28 +30,53 @@ export default class HomeView extends Component {
     this.getArticles();
   }
 
+  componentDidMount() {
+    this.mounted = true;
+    setInterval(() => { this.getArticles(); }, 30000);
+    setInterval(() => { this.incrementScroll(); }, 5000);
+    this.images = [
+      undefined,
+      trumpFace,
+      politicFace,
+      nasaLogo,
+      car,
+    ];
+    this._currentIndex = 0;
+  }
+
   getArticles = () => {
     getArticles().then((response) => {
       console.log(response);
-      this._currentIndex = 0;
-      this.articleIds = response.articles.map((article) => article.id);
+      this.articleIds = response.articles.map(article => article.id);
       this.setState({
         articles: response.articles,
         time: response.time,
         loaded: true,
       });
+      if (this.mounted) {
+        this.scroll(this.scrollY);
+      }
     });
   }
 
-  incrementScroll = () => {
-    console.log('Scrolling...');
-
-    if (this.articleIds) {
-      console.log(this[this.articleIds[this._currentIndex]]);
-      console.log('Actual movement...', this.articleIds, this._currentIndex);
-      this._currentIndex += 1;
-      scrollToComponent(this[this.articleIds[this._currentIndex]]);
+  scroll = debounce((scrollY) => {
+    if (!this.isAnimating) {
+      this.isAnimating = true;
+      smoothScrollTo(scrollY, () => {
+        this.isAnimating = false;
+      });
     }
+  }, 500);
+
+  incrementScroll = () => {
+      console.log('Scrolling...');
+      if (this.articleIds) {
+        this.scrollY = 600 * this._currentIndex;
+        this.scroll(this.scrollY);
+        console.log('Actual movement...', this.articleIds, this._currentIndex);
+        this._currentIndex += 1;
+        if (this._currentIndex === (this.articleIds.length - 1)) this._currentIndex = 0;
+      }
   }
 
   TITLE = 'Home';
@@ -55,8 +86,6 @@ export default class HomeView extends Component {
   ].join(' ');
 
   render() {
-    //setTimeout(() => { this.getArticles(); }, 1000);
-    setTimeout(() => { this.incrementScroll(); }, 1000);
     return (
       <SpecialLayout className={styles.root} time={this.state.time}>
         <Helmet>
@@ -75,6 +104,7 @@ export default class HomeView extends Component {
               <Article
                 article={article}
                 key={article.id}
+                image={this.images[article.image]}
                 ref={ref => (this[article.id] = ref)} />
               )
             )
