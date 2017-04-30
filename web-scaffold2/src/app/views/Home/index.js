@@ -9,6 +9,10 @@ import { makeTitle } from 'app/lib/social';
 import SpecialLayout from 'app/layouts/Special';
 import getArticles from 'app/articleApi';
 import Article from 'app/components/Article';
+import trumpFace from 'app/assets/images/trump.jpg';
+import politicFace from 'app/assets/images/politician.jpg';
+import nasaLogo from 'app/assets/images/NASA_logo.svg';
+import car from 'app/assets/images/car.png';
 
 import styles from './styles.styl';
 
@@ -30,6 +34,13 @@ export default class HomeView extends Component {
     this.mounted = true;
     setInterval(() => { this.getArticles(); }, 30000);
     setInterval(() => { this.incrementScroll(); }, 1000);
+    this.images = [
+      undefined,
+      trumpFace,
+      politicFace,
+      nasaLogo,
+      car,
+    ];
   }
 
   getArticles = () => {
@@ -58,8 +69,8 @@ export default class HomeView extends Component {
   incrementScroll = () => {
       console.log('Scrolling...');
       if (this.articleIds) {
-        this.scrollY = 300 * this._currentIndex;
-        this.scroll(300 * this._currentIndex);
+        this.scrollY = 500 * this._currentIndex;
+        this.scroll(this.scrollY);
         console.log('Actual movement...', this.articleIds, this._currentIndex);
         this._currentIndex += 1;
         if (this._currentIndex === this.articleIds.length) this._currentIndex = 0;
@@ -91,6 +102,7 @@ export default class HomeView extends Component {
               <Article
                 article={article}
                 key={article.id}
+                image={this.images[article.image]}
                 ref={ref => (this[article.id] = ref)} />
               )
             )
