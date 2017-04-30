@@ -38,8 +38,14 @@ export default class HomeView extends Component {
   }
 
   incrementScroll = () => {
-    this._currentIndex += 1;
-    scrollToComponent(this[this.articleIds[this._currentIndex]]);
+    console.log('Scrolling...');
+
+    if (this.articleIds) {
+      console.log(this[this.articleIds[this._currentIndex]]);
+      console.log('Actual movement...', this.articleIds, this._currentIndex);
+      this._currentIndex += 1;
+      scrollToComponent(this[this.articleIds[this._currentIndex]]);
+    }
   }
 
   TITLE = 'Home';
@@ -49,8 +55,8 @@ export default class HomeView extends Component {
   ].join(' ');
 
   render() {
-    setTimeout(() => { this.getArticles(); }, 10000);
-    setTimeout(() => { this.incrementScroll(); }, 15000);
+    //setTimeout(() => { this.getArticles(); }, 1000);
+    setTimeout(() => { this.incrementScroll(); }, 1000);
     return (
       <SpecialLayout className={styles.root} time={this.state.time}>
         <Helmet>
@@ -69,7 +75,7 @@ export default class HomeView extends Component {
               <Article
                 article={article}
                 key={article.id}
-                ref={ref => this[article.id] = ref} />
+                ref={ref => (this[article.id] = ref)} />
               )
             )
           }
