@@ -41,19 +41,21 @@ export default class HomeView extends Component {
       nasaLogo,
       car,
     ];
+    this._currentIndex = 0;
   }
 
   getArticles = () => {
     getArticles().then((response) => {
       console.log(response);
-      this._currentIndex = 0;
       this.articleIds = response.articles.map(article => article.id);
       this.setState({
         articles: response.articles,
         time: response.time,
         loaded: true,
       });
-      if (this.mounted) this.scroll(this.scrollY);
+      if (this.mounted) {
+        this.scroll(this.scrollY);
+      }
     });
   }
 
@@ -73,7 +75,7 @@ export default class HomeView extends Component {
         this.scroll(this.scrollY);
         console.log('Actual movement...', this.articleIds, this._currentIndex);
         this._currentIndex += 1;
-        if (this._currentIndex === this.articleIds.length) this._currentIndex = 0;
+        if (this._currentIndex === (this.articleIds.length - 1)) this._currentIndex = 0;
       }
   }
 
