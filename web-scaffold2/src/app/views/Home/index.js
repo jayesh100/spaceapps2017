@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
-import Slider from 'react-slick';
+import scrollToComponent from 'react-scroll-to-component';
 // import { Link } from 'react-router';
 
 import config from 'app/config';
@@ -27,12 +27,25 @@ export default class HomeView extends Component {
   getArticles = () => {
     getArticles().then((response) => {
       console.log(response);
+      this._currentIndex = 0;
+      this.articleIds = response.articles.map((article) => article.id);
       this.setState({
         articles: response.articles,
         time: response.time,
         loaded: true,
       });
     });
+  }
+
+  incrementScroll = () => {
+    console.log('Scrolling...');
+
+    if (this.articleIds) {
+      console.log(this[this.articleIds[this._currentIndex]]);
+      console.log('Actual movement...', this.articleIds, this._currentIndex);
+      this._currentIndex += 1;
+      scrollToComponent(this[this.articleIds[this._currentIndex]]);
+    }
   }
 
   TITLE = 'Home';
@@ -42,7 +55,8 @@ export default class HomeView extends Component {
   ].join(' ');
 
   render() {
-    setTimeout(() => { this.getArticles(); }, 10000);
+    //setTimeout(() => { this.getArticles(); }, 1000);
+    setTimeout(() => { this.incrementScroll(); }, 1000);
     return (
       <SpecialLayout className={styles.root} time={this.state.time}>
         <Helmet>
@@ -60,7 +74,8 @@ export default class HomeView extends Component {
             this.state.loaded && this.state.articles.map(article => (
               <Article
                 article={article}
-                key={article.id} />
+                key={article.id}
+                ref={ref => (this[article.id] = ref)} />
               )
             )
           }
