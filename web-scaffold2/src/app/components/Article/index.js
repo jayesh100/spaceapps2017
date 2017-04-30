@@ -4,9 +4,6 @@ import React, { Component } from 'react';
 import styles from './styles.styl';
 
 export default class Article extends Component {
-  static propTypes = {
-    article: {},
-  };
 
   constructor(props) {
     super(props);
